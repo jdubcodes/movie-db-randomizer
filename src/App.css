@@ -12,12 +12,13 @@ h1 {
 
 .filters {
     margin: 1rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
     background-color: rgb(24, 24, 24);
 }
 
 .filters button {
-    width: 110px;
-    height: 50px;
+    height: 55px;
     border: 1px solid transparent;
     background-color: rgb(24, 24, 24);
     color: white;

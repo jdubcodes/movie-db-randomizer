@@ -11,7 +11,7 @@ function App() {
   const [topRated, setTopRated] = useState([]);
   const [unique, setUnique] = useState([]);
   const [filtered, setFiltered] = useState([]);
-  const [activeGenre, setActiveGenre] = useState(0);
+  const [random, setRandom] = useState([]);
 
   useEffect(() => {
     fetchAllMovies();
@@ -49,27 +49,23 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Top Movies</h1>
-      <Filters 
-        trending={trending}
-        popular={popular}
-        topRated={topRated}
-        unique={unique} 
-        setFiltered={setFiltered}
-        activeGenre={activeGenre}
-        setActiveGenre={setActiveGenre} 
-      />
-      <motion.div 
-      layout
-      transition={{ duration: 1 }}
-      className="movies"
-      >
+      <header>
+        <Filters 
+          trending={trending}
+          popular={popular}
+          topRated={topRated}
+          unique={unique}
+          random={random}
+          setFiltered={setFiltered}
+        />
+      </header>
+      <div className="movies">
         <AnimatePresence>
           {filtered.map((movie) => {
             return <Movie key={movie.id} movie={movie} />;
           })}
         </AnimatePresence>
-      </motion.div>
+      </div>
     </div>
   );
 }
